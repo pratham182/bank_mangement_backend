@@ -15,7 +15,7 @@ exports.createToken=((res,userId)=>{
       httpOnly: true,
       secure: true, 
       sameSite: "None",
-      path: "/",
+     
     });
 
       return token;

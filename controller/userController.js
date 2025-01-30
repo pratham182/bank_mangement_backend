@@ -188,8 +188,7 @@ exports.logout = (req, res) => {
     res.clearCookie('jwt', {
       httpOnly: true,
       secure: true, 
-      sameSite: 'None', 
-      path: '/',  
+      sameSite: 'None' 
     });
 
     res.status(200).json({
