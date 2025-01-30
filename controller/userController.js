@@ -9,7 +9,6 @@ const { createToken, verfiyToken, verifyToken } = require("../utils/jwtUtil");
 
 
 exports.registerUser = async (req, res) => {
-console.log("hello")
   const { email, username, password } = req.body;
 console.log(email)
   // const errors = validationResult(req);
@@ -35,7 +34,6 @@ console.log(email)
     
     const existingUser = await User.findOne({ username });
     if (existingUser) {
-      console.log("hello2")
       return res.status(400).json({
         status: false,
         message: "User already exists",
@@ -188,7 +186,6 @@ exports.dashboard = async (req, res) => {
 exports.logout = (req, res) => {
   try{
 
-    console.log(req.cookies);
     res.clearCookie('jwt'); 
      res.status(200).json({status:true,error:null, message: 'Logged out successfully' });
 
