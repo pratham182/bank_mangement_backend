@@ -168,7 +168,7 @@ exports.dashboard = async (req, res) => {
         user: { id: user._id, username: user.name, role: user.role },
       });    }
 
-      return res.status(403).json({ success: false, message: 'Permission denied' });
+      return res.json({ success: false, message: 'Permission denied' });
 
 
 
