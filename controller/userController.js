@@ -184,17 +184,25 @@ exports.dashboard = async (req, res) => {
 
 
 exports.logout = (req, res) => {
-  try{
+  try {
+    res.clearCookie('jwt', {
+      httpOnly: true,
+      secure: true, 
+      sameSite: 'strict',
+      path: '/',  
+    });
 
-    res.clearCookie('jwt'); 
-     res.status(200).json({status:true,error:null, message: 'Logged out successfully' });
-
-
-  }catch(err){
+    res.status(200).json({
+      status: true,
+      error: null,
+      message: 'Logged out successfully',
+    });
+  } catch (err) {
     console.log(err);
-    res.status(200).json({ status: false,
-      message: "Internal server error",
-      error: err.message || "Error occurred during logout", });
+    res.status(500).json({
+      status: false,
+      message: 'Internal server error',
+      error: err.message || 'Error occurred during logout',
+    });
   }
- 
 };
