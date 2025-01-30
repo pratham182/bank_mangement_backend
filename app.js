@@ -17,9 +17,14 @@ connectDB();
 app.use(express.json());
 
 
+const frontendURL =
+  process.env.NODE_ENV === "production"
+    ? "https://bank-management-frontend.vercel.app" 
+    : "http://localhost:5173";
+
 app.use(
     cors({
-      origin: 'https://frontend-bank-assignment.vercel.app',
+      origin: frontendURL,
       methods: ['GET', 'POST', 'PUT', 'DELETE'],
       credentials: true,
       allowedHeaders: ['Content-Type', 'Authorization'],

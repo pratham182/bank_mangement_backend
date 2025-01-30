@@ -32,7 +32,9 @@ console.log(email)
 
   try {
     
-    const existingUser = await User.findOne({ username });
+    const existingUser = await User.findOne({ email });
+
+    console.log(existingUser)
     if (existingUser) {
       return res.status(400).json({
         status: false,
