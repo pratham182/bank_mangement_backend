@@ -19,7 +19,7 @@ app.use(express.json());
 
 const frontendURL =
   process.env.NODE_ENV === "production"
-    ? "https://frontend-bank-assignment.vercel.app/" 
+    ? "https://frontend-bank-assignment.vercel.app" 
     : "http://localhost:5173";
 
 app.use(
